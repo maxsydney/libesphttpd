@@ -1,8 +1,12 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "httpd.h"
 
-CgiStatus cgiRedirect(HttpdConnData *connData);
+extern CgiStatus cgiRedirect(HttpdConnData *connData);
 
 // This CGI function redirects to a fixed url of http://[hostname]/ if hostname
 // field of request isn't already that hostname. Use this in combination with
@@ -28,3 +32,7 @@ CgiStatus cgiRedirect(HttpdConnData *connData);
 CgiStatus cgiRedirectToHostname(HttpdConnData *connData);
 
 CgiStatus cgiRedirectApClientToHostname(HttpdConnData *connData);
+
+#ifdef __cplusplus
+}
+#endif
